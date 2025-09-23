@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/ui/Common/Header";
+import { ClerkProvider } from "@clerk/nextjs";
+import Footer from "@/components/ui/Common/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,12 +21,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+     <ClerkProvider>
+     <html lang="en">
+
+<body
+  className={`${geistMono.variable} font-sans antialiased`}>
+    <div className="relative flex min-h-screen
+    flex-col">
+  <Header/>
+<main className="flex-1"> {children}</main> 
+ <Footer/>
+  </div>
+</body>
+</html>
+    </ClerkProvider>
   );
 }
