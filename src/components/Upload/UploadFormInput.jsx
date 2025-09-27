@@ -1,6 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components./ui/input";
+import { Input } from "@/components/ui/input";
 export default function UploadFormInput({ onSubmit }) {
     return (
       <form className="flex flex-col gap-6" onSubmit={onSubmit}>
